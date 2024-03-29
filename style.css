@@ -106,8 +106,8 @@ img{
   .login_close,.sign_up_close {
     width: max-content;
     top: 5rem;
-    left:20rem;
-    right: 0;
+    /* left:10rem; */
+    right: 2rem;
     color: white;
     margin-inline: auto;
     font-size: 2rem;
