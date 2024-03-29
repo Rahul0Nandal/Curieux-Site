@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: "Reddit Mono", monospace;
+    
+}
+input,
+button{
+    border:none;
+    outline: none;
+    color: black;
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+#preload{
+  /* display: none; */
+  
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: black;
+}
+#preload_img{
+  /* display: flex; */
+  position: fixed;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  float: middle;
+  vertical-align: middle;
+  top: -50vh;
+}
+
+/* .main_bg{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+} */
+.head_image
+{
+	height: 100vh;
+	float: right;
+  top: 0px;
+  right: 0px;
+  overflow: hidden;
+  background-color: black;
+
+  
+}
+
+#main_image{
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right;
+  overflow: hidden;
+ 
+ }
+
+/* For mobiles */
+@media screen and (max-width: 768px) {
+  .nav_menu{
+      position: fixed;
+      /* top: -100%; */
+      top: -100%;
+      left: 0;
+      background-color: rgb(35, 35, 36);
+      width: 100%;
+      padding-top: 3rem ;
+      padding-bottom: 2rem;
+      transition: top .4s;
+  }
+  .login,.sign_up {
+    padding-top: 10rem;
+  }
+  .login_close,.sign_up_close {
+    width: max-content;
+    top: 5rem;
+    left:30rem;
+    right: 0;
+    color: white;
+    margin-inline: auto;
+    font-size: 2rem;
+  }
+  .login_form,.sign_up_form{
+    max-width: 400px;
+    margin-inline: auto;
+  }
+
+  .head_image
+  {
+    height: 60vh;
+    
+    float: right;
+      
+    top: 0px;
+    right: 0px;
+    overflow: hidden;
+  }
+
+  #main_image{ 
+    height: 60vh;
+    width: auto;
+   overflow: hidden;
+
+  opacity: 50%;
+  }
+  
+}
+
+.logo{
+    display: inline;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    /* font-size: 200px; */
+}
+.nav_logo{
+    font-size: 20px;
+    color: white;
+    vertical-align: middle;
+    align-items: center;
+}
+.header{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    align-items: center;
+}
+
+.nav{
+  padding: 1vw 3vw 0 2.5vw;
+    color: white;
+    height: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_action_button{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.material-symbols-outlined{
+    /* font-size: 1.25rem; */
+    cursor: pointer;
+    color: white;
+    transition: color .4s;
+}
+.nav_login{
+    cursor: pointer;
+}
+
+:is( .nav_login, .toggle):hover{
+    color: rgb(73, 164, 192);
+}
+.nav_link:hover{
+  color: rgb(73, 164, 192);
+}
+
+
+.nav_list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    text-align: center;
+}
+.nav_link{
+    color: rgb(207, 206, 206);
+    transition: color .5s;
+}
+.nav_close{
+    position: absolute;
+    top: 1.3rem ;
+    right: 1rem;
+    color: rgb(207, 206, 206);
+
+}
+
+
+
+/* head image */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* login and sign-up */
+
+.login,
+.sign_up{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* z-index: var(--z-modal); */
+    background-color: hsla(230, 75%, 15%, .1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); /* For safari */
+    padding: 8rem 1.5rem 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+  
+.login_close,
+.sign_up_close {
+    position: absolute;
+    /* top: 1rem;
+    right: 1rem; */
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.login_form, 
+.login_group,
+.sign_up_form,
+.sign_up_group {
+  display: grid;
+}
+
+.login_form ,
+.sign_up_form{
+  background-color: rgb(234, 237, 241);
+  padding: 2rem 1.5rem 2.5rem;
+  box-shadow: 0 8px 32px hsla(228, 40%, 48%, 0.2);
+  border-radius: 1rem;
+  row-gap: 1.25rem;
+  text-align: center;
+  transform: translateY(-1rem);
+  transition: transform .4s;
+}
+.login_group,
+.sign_up_group {
+    row-gap: 1rem;
+}
+.login_label,
+.sign_up_label {
+    display: block;
+    text-align: initial;
+    color: white;
+    /* font-weight: ; */
+    margin-bottom: .25rem;
+  }
+  .login_input,
+  .sign_up_input {
+    width: 100%;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    padding: 1rem;
+    border-radius: .5rem;
+    color: rgb(80, 79, 79);
+  }
+  .login_input::placeholder,
+  .sign_up_input::placeholder{
+    color: rgb(80, 79, 79);
+  }
+  
+  .login_signup {
+    margin-bottom: .5rem;
+    font-size: smaller;
+
+  }
+  .login_signup a {
+    color: rgb(73, 164, 192);
+  }
+  .login_forgot {
+    display: inline-block;
+    color: rgb(73, 164, 192);
+    font-size: smaller;
+    margin-bottom: 1.25rem;
+  }
+  
+.login_button,
+.sign_up_button{
+    display: inline-block;
+    background-color:rgb(73, 164, 192);
+    width: 100%;
+    color: #fff;
+    font-weight: 700;
+    /* font-size: ; */
+    padding: 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: box-shadow .4s;
+}
+  
+.login_button:hover,
+.sign_up_button:hover {
+    box-shadow: 0 4px 24px hsla(230, 75%, 40%, .4);
+}
+:is(.login_signup a,.login_forgot):hover{
+  text-decoration: underline;
+  /* transition: text-decoration .4s; */
+}
+.show-login {
+    opacity: 1;
+    pointer-events: initial;
+}
+.show-signup{
+  opacity: 1;
+  pointer-events: initial;
+}
+.show-login .login__form {
+    transform: translateY(0);
+  }
+
+@media screen and (min-width:768px) {
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+    column-gap: 3rem;
+  }
+  .nav_close, 
+  .nav_toggle {
+    display: none;
+  }
+  .nav_menu {
+    margin-left: auto;
+  }
+  .nav_list {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+
+  .login_form,.sign_up_form {
+    padding: 3rem 2rem 3.5rem;
+  }
+
+  .login_close,.sign_up_close {
+    width: max-content;
+    top: 5rem;
+    left:30rem;
+    right: 0;
+    color: white;
+    margin-inline: auto;
+    font-size: 2rem;
+  }
+  .sign_up_name{
+    display: inline;
+    width: 48.5%;
+  }
+ 
+  .login_form,.sign_up_form{
+    max-width: 400px;
+    margin-inline: auto;
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .sign_up_name{
+    display: inline;
+    width: 48.7%;
+  }
+}
+
+
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+}
+
+.show-menu{
+  top: 0;
+}
