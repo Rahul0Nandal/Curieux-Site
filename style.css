@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
-
+ /* main color : rgb(73, 164, 192) */
 *{
     margin: 0;
     padding: 0;
@@ -72,8 +72,9 @@ img{
   overflow: hidden;
   background-color: black; */
   position: relative;
+  top: 10;
   height: 100vh;
-  
+  unicode-bidi: isolate;
 }
 
 #main_image{
@@ -86,7 +87,8 @@ img{
   object-position: center;
   overflow: hidden;
   */
-  position: absolute;
+  display: block;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -96,6 +98,107 @@ img{
   /* z-index: -1; */
  }
 
+ #toptext{
+  position: absolute; 
+  top: 30%; 
+  left: 1%; 
+  /* transform: translate(-50%, -50%); */
+  
+  font-weight: bold;
+  color: rgb(34, 33, 33); /* Text color */
+  /* text-align: center;  */
+  background-color: transparent; /* Semi-transparent background */
+  padding: 10px 20px; /* Add padding for better readability */s  
+ }
+ #t1{
+  background: linear-gradient(to right, black, grey);
+  -webkit-background-clip: text; /* Apply the gradient as text color */
+  color: transparent;
+
+
+  font-size: 11vw;
+ }
+ #t2{
+  font-size: 4vw;
+
+  background: linear-gradient(to right, rgb(141, 141, 141), rgb(233, 232, 232));
+  -webkit-background-clip: text; /* Apply the gradient as text color */
+  color: transparent;
+ }
+
+#faculty{
+  padding-top: 16vh;
+}
+
+
+ #head_faculty{
+  text-align: center;
+ }
+
+ #banner{
+  display: flex;
+ }
+ .flip-container {
+  perspective: 1000px; /* Add perspective for 3D effect */
+  width: 25vw; /* Adjust size as needed */
+  height: 25vw; /* Adjust size as needed */
+  /* padding: 10vh 10vh 10vh 10vh; */
+  margin: 5vh;
+  
+}
+
+/* Style for the box */
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+  transform: rotateY(180deg); /* Rotate the box on hover */
+}
+
+/* Style for the flipper */
+.flipper {
+  transition: transform 1s; /* Add smooth transition effect */
+  transform-style: preserve-3d; /* Maintain 3D effect */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20;
+}
+
+/* Style for the front and back of the box */
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide back of the box */
+  border: 2px solid black;
+  border-radius: 10%;
+}
+#faculty_name{
+  position:absolute;
+  font-size: larger;
+  width: 100%;
+  top: 70%;
+  text-align: center;
+  margin: 10px;
+
+}
+#photo{
+  height: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: 25%;
+  top: 10%;
+}
+/* Style for the front of the box */
+.front {
+  background: #ebe9e9; /* Front color */
+}
+
+/* Style for the back of the box */
+.back {
+  background: rgb(221, 221, 223); /* Back color */
+  transform: rotateY(180deg); /* Initially hide the back */
+}
 /* For mobiles */
 @media screen and (max-width: 768px) {
   .nav_menu{
@@ -108,6 +211,9 @@ img{
       padding-top: 3rem ;
       padding-bottom: 2rem;
       transition: top .4s;
+  }
+  #toptext{
+    top: 30vw;
   }
   .login,.sign_up {
     padding-top: 10rem;
@@ -136,6 +242,7 @@ img{
     right: 0px;
     overflow: hidden; */
     position: relative;
+    top: 0;
   height: 60vh;
   }
 
@@ -277,6 +384,7 @@ img{
     opacity: 0;
     pointer-events: none;
     transition: opacity .6s;
+    
 }
   
 .login_close,
@@ -287,6 +395,7 @@ img{
     font-size: 1.5rem;
     color: white;
     cursor: pointer;
+    
 }
 
 .login_form, 
@@ -295,13 +404,17 @@ img{
 .sign_up_group {
   display: grid;
 }
-
+.login_title,
+.sign_up_title{
+  color: #fff;
+}
 .login_form ,
 .sign_up_form{
-  background-color: rgb(234, 237, 241);
+  background-color: transparent;
   padding: 2rem 1.5rem 2.5rem;
   box-shadow: 0 8px 32px hsla(228, 40%, 48%, 0.2);
   border-radius: 1rem;
+  border: solid 2px #fff;
   row-gap: 1.25rem;
   text-align: center;
   transform: translateY(-1rem);
@@ -322,20 +435,21 @@ img{
   .login_input,
   .sign_up_input {
     width: 100%;
-    background-color: whitesmoke;
-    border: 2px solid black;
+    background-color: transparent;
+    border: 2px solid white;
     padding: 1rem;
     border-radius: .5rem;
-    color: rgb(80, 79, 79);
+    color: white;
   }
   .login_input::placeholder,
   .sign_up_input::placeholder{
-    color: rgb(80, 79, 79);
+    color: white;
   }
   
   .login_signup {
     margin-bottom: .5rem;
     font-size: smaller;
+    color: #fff;
 
   }
   .login_signup a {
@@ -351,9 +465,10 @@ img{
 .login_button,
 .sign_up_button{
     display: inline-block;
-    background-color:rgb(73, 164, 192);
-    width: 100%;
-    color: #fff;
+    background-color: transparent;
+    width: 30%;
+    color: white;
+    border: solid 2px white;
     font-weight: 700;
     /* font-size: ; */
     padding: 1rem;
@@ -364,10 +479,14 @@ img{
   
 .login_button:hover,
 .sign_up_button:hover {
-    box-shadow: 0 4px 24px hsla(230, 75%, 40%, .4);
+    box-shadow: 0 4px 24px rgb(73, 164, 192, 0.6);
+    /* background-color:rgb(73, 164, 192) ;
+    color: #fff;
+    transform: scale(1.1); */
 }
 :is(.login_signup a,.login_forgot):hover{
   text-decoration: underline;
+  color: rgb(73, 164, 192);
   /* transition: text-decoration .4s; */
 }
 .show-login {
@@ -378,7 +497,7 @@ img{
   opacity: 1;
   pointer-events: initial;
 }
-.show-login .login__form {
+.show-login .login_form {
     transform: translateY(0);
   }
 
@@ -420,6 +539,7 @@ img{
   .login_form,.sign_up_form{
     max-width: 400px;
     margin-inline: auto;
+    
   }
   
 }
